@@ -5,6 +5,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { flexbox } from '@material-ui/system';
 
 const useStyles = makeStyles({
   card: {
@@ -21,38 +22,44 @@ const useStyles = makeStyles({
   pos: {
     marginBottom: 12,
   },
+  
 });
 
 const Dashboard = () => {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <Card className={classes.card}>
+    <div>
+         <Card className={classes.card}>
       <CardContent>
-        <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Word of the Day
+        <Typography component="h1"
+          variant="h2"
+          align="center"
+          color="textPrimary"
+          gutterBottom>
+          Dashboard
         </Typography>
-        <Typography variant="h5" component="h2">
-          be
-          {bull}
-          nev
-          {bull}o{bull}
-          lent
+        <Typography>
+            Ball <Button size="small" color="secondary">Add</Button>
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          adjective
+        <Typography>
+            Strike <Button size="small" color="secondary">Add</Button>
         </Typography>
-        <Typography variant="body2" component="p">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
+        <Typography>
+            Hit <Button size="small" color="secondary">Add</Button>
+        </Typography>
+        <Typography>
+            Foul <Button size="small" color="secondary">Add</Button>
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
+
+      
     </Card>
+
+   
+    </div>
+
+    
   );
 }
 

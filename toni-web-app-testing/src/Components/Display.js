@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, NavLink } from "react-router-dom";
+
 import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -15,6 +15,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import FooterComp from "./Footer";
+import Dashboard from './Dashoboard';
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -65,12 +67,13 @@ export default function Display() {
         elevation={0}
         className={classes.appBar}
       >
-        <Toolbar className={classes.toolbar}>
+        {/* <Toolbar className={classes.toolbar}>
           <nav>
             <Link
               variant="button"
               color="textPrimary"
               className={classes.link}
+
             >
               Dashboard
             </Link>
@@ -78,11 +81,12 @@ export default function Display() {
               variant="button"
               color="textPrimary"
               className={classes.link}
+             
             >
               Board
             </Link>
           </nav>
-        </Toolbar>
+        </Toolbar> */}
       </AppBar>
       {/* Hero unit */}
       <Container maxWidth="sm" component="main" className={classes.displayContent}>
@@ -116,6 +120,7 @@ export default function Display() {
           no effect, count stays at 2 strikes.
         </Typography>
       </Container>
+      <Dashboard />
       <FooterComp />
     </React.Fragment>
   );
