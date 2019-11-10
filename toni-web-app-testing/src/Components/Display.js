@@ -1,23 +1,16 @@
 import React from "react";
-
 import AppBar from "@material-ui/core/AppBar";
-import Button from "@material-ui/core/Button";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Grid from "@material-ui/core/Grid";
-import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Box from "@material-ui/core/Box";
-import FooterComp from "./Footer";
-import Dashboard from './Dashoboard';
+import Paper from "@material-ui/core/Paper";
 
-
+const usePaper = makeStyles(theme => ({
+  root: {
+    padding: theme.spacing(3, 2)
+  }
+}));
 
 const useStyles = makeStyles(theme => ({
   "@global": {
@@ -52,11 +45,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-
-
-export default function Display() {
+export default function Display(props) {
   const classes = useStyles();
+  const paper = usePaper();
 
   return (
     <React.Fragment>
@@ -66,30 +57,12 @@ export default function Display() {
         color="default"
         elevation={0}
         className={classes.appBar}
+      ></AppBar>
+      <Container
+        maxWidth="sm"
+        component="main"
+        className={classes.displayContent}
       >
-        {/* <Toolbar className={classes.toolbar}>
-          <nav>
-            <Link
-              variant="button"
-              color="textPrimary"
-              className={classes.link}
-
-            >
-              Dashboard
-            </Link>
-            <Link
-              variant="button"
-              color="textPrimary"
-              className={classes.link}
-             
-            >
-              Board
-            </Link>
-          </nav>
-        </Toolbar> */}
-      </AppBar>
-      {/* Hero unit */}
-      <Container maxWidth="sm" component="main" className={classes.displayContent}>
         <Typography
           component="h1"
           variant="h2"
@@ -100,10 +73,12 @@ export default function Display() {
           At Bat Board
         </Typography>
 
-        <Typography variant="h6"
+        <Typography
+          variant="h6"
           align="center"
           color="textPrimary"
-          component="p">
+          component="p"
+        >
           Rules
         </Typography>
 
@@ -119,9 +94,17 @@ export default function Display() {
           With 1 strike, a foul makes it 2 strikes. With two strikes a foul has
           no effect, count stays at 2 strikes.
         </Typography>
+        <Paper className={paper.root}>
+          <Typography variant="h5" component="h3">
+            Balls Count
+          </Typography>
+          <Typography component="p">{props.balls}</Typography>
+          <Typography variant="h5" component="h3">
+            Strikes Count
+          </Typography>
+          <Typography component="p">{props.strikes}</Typography>
+        </Paper>
       </Container>
-      <Dashboard />
-      <FooterComp />
     </React.Fragment>
   );
 }
